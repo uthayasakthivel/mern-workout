@@ -1,6 +1,6 @@
 import express from "express";
 // import { gift } from "../models/giftModel.js";
-import gift from "../models/giftModel.js";
+import { gift } from "../models/giftModel.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -14,9 +14,9 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { reps, rounds } = req.body;
+  const { title, description } = req.body;
   try {
-    const newgift = new gift({ reps, rounds });
+    const newgift = new gift({ title, description });
     await newgift.save();
     res.status(201).json(newgift);
   } catch (error) {

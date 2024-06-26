@@ -1,13 +1,15 @@
 import mongoose from "mongoose";
-const giftSchema = new mongoose.Schema({
-  title: {
+
+const userSchema = new mongoose.Schema({
+  username: {
     required: true,
     type: String,
+    unique: true,
   },
-  description: {
+  password: {
     required: true,
     type: String,
   },
 });
 
-export { giftSchema };
+export { userSchema };

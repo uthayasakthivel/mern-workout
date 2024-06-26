@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import giftRoutes from "./routes/giftRouter.js";
+import authRoutes from "./routes/authRouter.js";
 const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3000;
@@ -31,3 +32,4 @@ try {
 
 //create API'S
 app.use("/gifts", giftRoutes);
+app.use("/auth", authRoutes);
